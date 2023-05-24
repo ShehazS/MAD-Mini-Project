@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "999547585445",
+    "project_id": "al-bayan-2f17c",
+    "storage_bucket": "al-bayan-2f17c.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:999547585445:android:a62b5fe4046a5199639e4c",
+        "android_client_info": {
+          "package_name": "com.example.mad_mini_project"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "999547585445-ev3oa6dq355cp342uq7kb7qldmuvheco.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA_xLo6PaN9g3MpEq7xKFxUKwLJxJYvOVU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "999547585445-ev3oa6dq355cp342uq7kb7qldmuvheco.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
