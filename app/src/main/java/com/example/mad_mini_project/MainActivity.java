@@ -13,7 +13,7 @@ import com.google.firebase.auth.FirebaseUser;
 
 public class MainActivity extends AppCompatActivity {
 
-    Button btn;
+    Button btn,sale,manageproduct;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -23,11 +23,29 @@ public class MainActivity extends AppCompatActivity {
         getuserstatus();
 
         btn = findViewById(R.id.button2);
+        sale = findViewById(R.id.sale);
+        manageproduct = findViewById(R.id.ManageProducts);
         btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 FirebaseAuth.getInstance().signOut();
                 getuserstatus();
+            }
+        });
+
+        sale.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(MainActivity.this,Sale.class));
+                finish();
+            }
+        });
+
+        manageproduct.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(MainActivity.this,Add.class));
+                finish();
             }
         });
 
@@ -42,6 +60,7 @@ public class MainActivity extends AppCompatActivity {
             Toast.makeText(MainActivity.this, "Session Closed Logging Out.",
                     Toast.LENGTH_SHORT).show();
             startActivity(new Intent(MainActivity.this, Login.class));
+            finish();
         }
     }
 }
