@@ -44,4 +44,8 @@ public class Salehelper {
         this.quantity = quantity;
         this.total = total;
     }
+    @Override
+    public String toString(){
+        return "Type: "+type+"\nPrice: "+price+"\nQuantity: "+quantity+"\nTotal: "+total;
+    }
 }

@@ -80,17 +80,41 @@ public class Add extends AppCompatActivity {
                 RetainPrice = String.valueOf(rp.getText());
                 Quantity = String.valueOf(qty.getText());
                 try{
-                    ProductHelperClass helperdata = new ProductHelperClass(Type,WholesalePrice,RetainPrice,Quantity);
+                    if(Type.isEmpty()){
+                        Toast.makeText(Add.this, "Please Check Fields", Toast.LENGTH_SHORT).show();
+                    }
+                    else{
+                        data = FirebaseDatabase.getInstance();
+                        dataref = data.getReference("Product");
+                        dataref.child(Type).get().addOnCompleteListener(new OnCompleteListener<DataSnapshot>() {
+                            @Override
+                            public void onComplete(@NonNull Task<DataSnapshot> task) {
 
-                    data = FirebaseDatabase.getInstance();
-                    dataref = data.getReference("Product");
+                                if(task.isSuccessful()){
+                                    if(task.getResult().exists()){
 
-                    dataref.child(Type).setValue(helperdata);
-                    Toast.makeText(Add.this, "Item Added To Database", Toast.LENGTH_SHORT).show();
-                    type.setText("");
-                    wp.setText("");
-                    rp.setText("");
-                    qty.setText("");
+                                        Toast.makeText(Add.this, "Item Already Exist", Toast.LENGTH_SHORT).show();
+                                    }
+                                    else {
+                                        ProductHelperClass helperdata = new ProductHelperClass(Type,WholesalePrice,RetainPrice,Quantity);
+
+                                        data = FirebaseDatabase.getInstance();
+                                        dataref = data.getReference("Product");
+
+                                        dataref.child(Type).setValue(helperdata);
+                                        Toast.makeText(Add.this, "Item Added To Database", Toast.LENGTH_SHORT).show();
+                                        type.setText("");
+                                        wp.setText("");
+                                        rp.setText("");
+                                        qty.setText("");
+                                    }
+                                }
+                                else {
+                                    Toast.makeText(Add.this, "Failed To Connect to Database", Toast.LENGTH_SHORT).show();
+                                }
+                            }
+                        });
+                    }
                 }
                 catch (Exception e){
                     Toast.makeText(Add.this,"Error: Something Went Wrong",Toast.LENGTH_LONG);
@@ -148,6 +172,51 @@ public class Add extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
+                Type = String.valueOf(type.getText());
+                WholesalePrice = String.valueOf(wp.getText());
+                RetainPrice = String.valueOf(rp.getText());
+                Quantity = String.valueOf(qty.getText());
+                try{
+                    if(Type.isEmpty()){
+                        Toast.makeText(Add.this, "Please Check Fields", Toast.LENGTH_SHORT).show();
+                    }
+                    else{
+                        data = FirebaseDatabase.getInstance();
+                        dataref = data.getReference("Product");
+                        dataref.child(Type).get().addOnCompleteListener(new OnCompleteListener<DataSnapshot>() {
+                            @Override
+                            public void onComplete(@NonNull Task<DataSnapshot> task) {
+
+                                if(task.isSuccessful()){
+                                    if(task.getResult().exists()){
+
+                                        ProductHelperClass helperdata = new ProductHelperClass(Type,WholesalePrice,RetainPrice,Quantity);
+
+                                        data = FirebaseDatabase.getInstance();
+                                        dataref = data.getReference("Product");
+
+                                        dataref.child(Type).setValue(helperdata);
+                                        Toast.makeText(Add.this, "Item Updated in Database", Toast.LENGTH_SHORT).show();
+                                        type.setText("");
+                                        wp.setText("");
+                                        rp.setText("");
+                                        qty.setText("");
+
+                                    }
+                                    else {
+                                        Toast.makeText(Add.this, "Item Does not Exist", Toast.LENGTH_SHORT).show();
+                                    }
+                                }
+                                else {
+                                    Toast.makeText(Add.this, "Failed To Connect to Database", Toast.LENGTH_SHORT).show();
+                                }
+                            }
+                        });
+                    }
+                }
+                catch (Exception e){
+                    Toast.makeText(Add.this,"Error: Something Went Wrong",Toast.LENGTH_LONG);
+                };
             }
         });
         view.setOnClickListener(new View.OnClickListener() {

@@ -6,18 +6,45 @@
     android:layout_height="match_parent"
     tools:context=".Add">
 
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="512dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:srcCompat="@drawable/logo" />
+
+    <EditText
+        android:id="@+id/Price"
+        android:layout_width="0dp"
+        android:layout_height="42dp"
+        android:layout_marginStart="40dp"
+        android:layout_marginTop="71dp"
+        android:layout_marginEnd="40dp"
+        android:layout_marginBottom="72dp"
+        android:editable="true"
+        android:ems="10"
+        android:enabled="true"
+        android:hint="Wholesale Price"
+        android:inputType="text"
+        app:layout_constraintBottom_toBottomOf="@+id/quantitty"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/type" />
+
     <EditText
         android:id="@+id/type"
         android:layout_width="0dp"
         android:layout_height="42dp"
         android:layout_marginStart="40dp"
-        android:layout_marginTop="148dp"
+        android:layout_marginTop="217dp"
         android:layout_marginEnd="40dp"
-        android:layout_marginBottom="144dp"
+        android:layout_marginBottom="215dp"
         android:ems="10"
         android:hint="Type"
         android:inputType="text"
-        app:layout_constraintBottom_toBottomOf="@+id/quantitty"
+        app:layout_constraintBottom_toBottomOf="@+id/total"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -27,66 +54,53 @@
         android:layout_width="0dp"
         android:layout_height="42dp"
         android:layout_marginStart="40dp"
-        android:layout_marginTop="30dp"
+        android:layout_marginTop="192dp"
         android:layout_marginEnd="40dp"
-        android:layout_marginBottom="215dp"
+        android:layout_marginBottom="193dp"
         android:ems="10"
         android:hint="Quantity"
         android:inputType="text"
-        app:layout_constraintBottom_toTopOf="@+id/View"
+        app:layout_constraintBottom_toBottomOf="@+id/View"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/quantitty" />
-
-    <EditText
-        android:id="@+id/Price"
-        android:layout_width="0dp"
-        android:layout_height="42dp"
-        android:layout_marginStart="40dp"
-        android:layout_marginTop="29dp"
-        android:layout_marginEnd="40dp"
-        android:layout_marginBottom="74dp"
-        android:editable="true"
-        android:ems="10"
-        android:enabled="true"
-        android:hint="Wholesale Price"
-        android:inputType="text"
-        app:layout_constraintBottom_toBottomOf="@+id/quantitty"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/type" />
+        app:layout_constraintTop_toBottomOf="@+id/imageView" />
 
     <EditText
         android:id="@+id/quantitty"
         android:layout_width="0dp"
         android:layout_height="42dp"
         android:layout_marginStart="40dp"
-        android:layout_marginTop="30dp"
+        android:layout_marginTop="143dp"
         android:layout_marginEnd="40dp"
+        android:layout_marginBottom="141dp"
         android:ems="10"
         android:hint="Retail Price"
         android:inputType="text"
+        app:layout_constraintBottom_toTopOf="@+id/Update"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/Price" />
+        app:layout_constraintTop_toTopOf="@+id/type" />
 
     <Button
         android:id="@+id/Delete"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="40dp"
+        android:layout_marginEnd="20dp"
         android:layout_marginBottom="28dp"
         android:text="Delete"
         app:layout_constraintBottom_toTopOf="@+id/Cancel"
+        app:layout_constraintEnd_toStartOf="@+id/Update"
         app:layout_constraintStart_toEndOf="@+id/Add" />
 
     <Button
         android:id="@+id/Add"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="31dp"
+        android:layout_marginStart="7dp"
+        android:layout_marginEnd="17dp"
         android:text="Add"
         app:layout_constraintBaseline_toBaselineOf="@+id/Delete"
+        app:layout_constraintEnd_toStartOf="@+id/Delete"
         app:layout_constraintStart_toStartOf="parent" />
 
     <Button
@@ -103,19 +117,19 @@
         android:id="@+id/View"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="88dp"
+        android:layout_marginStart="14dp"
         android:layout_marginTop="28dp"
         android:text="View"
-        app:layout_constraintStart_toEndOf="@+id/Cancel"
+        app:layout_constraintStart_toEndOf="@+id/Delete"
         app:layout_constraintTop_toBottomOf="@+id/Update" />
 
     <Button
         android:id="@+id/Update"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="44dp"
         android:text="Update"
         app:layout_constraintBaseline_toBaselineOf="@+id/Delete"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/Delete" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
