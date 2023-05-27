@@ -1,8 +1,10 @@
 package com.example.mad_mini_project;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -26,6 +28,25 @@ public class Registration extends AppCompatActivity {
     Button btn;
 
     ProgressBar br;
+
+    @Override
+    public void onBackPressed() {
+        AlertDialog dialog = new AlertDialog.Builder(this).create();
+        dialog.setTitle("Exit Application?");
+        dialog.setButton(DialogInterface.BUTTON_POSITIVE, "Yes", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                finish();
+            }
+        });
+        dialog.setButton(DialogInterface.BUTTON_NEGATIVE, "No", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+            }
+        });
+        dialog.show();
+        return;
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

@@ -7,7 +7,7 @@
     tools:context=".Sale">
 
     <EditText
-        android:id="@+id/WPrice"
+        android:id="@+id/Price"
         android:layout_width="0dp"
         android:layout_height="42dp"
         android:layout_marginStart="40dp"
@@ -18,12 +18,12 @@
         android:enabled="false"
         android:hint="Price"
         android:inputType="text"
-        app:layout_constraintBottom_toTopOf="@+id/RPrice"
+        app:layout_constraintBottom_toTopOf="@+id/quantitty"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
 
     <EditText
-        android:id="@+id/RPrice"
+        android:id="@+id/quantitty"
         android:layout_width="0dp"
         android:layout_height="42dp"
         android:layout_marginStart="40dp"
@@ -37,13 +37,15 @@
         app:layout_constraintStart_toStartOf="parent" />
 
     <EditText
-        android:id="@+id/Quantity"
+        android:id="@+id/total"
         android:layout_width="0dp"
         android:layout_height="42dp"
         android:layout_marginStart="40dp"
         android:layout_marginEnd="40dp"
         android:layout_marginBottom="183dp"
+        android:editable="false"
         android:ems="10"
+        android:enabled="false"
         android:hint="Total"
         android:inputType="text"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -71,7 +73,7 @@
         android:layout_marginBottom="20dp"
         android:textOff="Retail"
         android:textOn="WholeSale"
-        app:layout_constraintBottom_toTopOf="@+id/WPrice"
+        app:layout_constraintBottom_toTopOf="@+id/Price"
         app:layout_constraintEnd_toEndOf="@+id/type"
         app:layout_constraintStart_toStartOf="@+id/type" />
 
@@ -81,9 +83,9 @@
         android:layout_height="wrap_content"
         android:layout_marginBottom="20dp"
         android:text="Calculate"
-        app:layout_constraintBottom_toTopOf="@+id/Quantity"
-        app:layout_constraintEnd_toEndOf="@+id/RPrice"
-        app:layout_constraintStart_toStartOf="@+id/RPrice" />
+        app:layout_constraintBottom_toTopOf="@+id/total"
+        app:layout_constraintEnd_toEndOf="@+id/quantitty"
+        app:layout_constraintStart_toStartOf="@+id/quantitty" />
 
     <Button
         android:id="@+id/Cancel"
