@@ -76,26 +76,33 @@ public class Registration extends AppCompatActivity {
                 email = String.valueOf(em.getText());
                 password = String.valueOf(psw.getText());
                 br.setVisibility(View.VISIBLE);
-                mAuth.createUserWithEmailAndPassword(email, password)
-                        .addOnCompleteListener(new OnCompleteListener<AuthResult>() {
-                            @Override
-                            public void onComplete(@NonNull Task<AuthResult> task) {
-                                if (task.isSuccessful()) {
-                                    FirebaseUser user = mAuth.getCurrentUser();
-                                    Toast.makeText(Registration.this, "User Added.",
-                                            Toast.LENGTH_SHORT).show();
-                                    br.setVisibility(View.GONE);
-                                    startActivity(new Intent(Registration.this,Login.class));
-                                    finish();
+                if (!email.isEmpty() || !password.isEmpty()) {
+                    mAuth.createUserWithEmailAndPassword(email, password)
+                            .addOnCompleteListener(new OnCompleteListener<AuthResult>() {
+                                @Override
+                                public void onComplete(@NonNull Task<AuthResult> task) {
+                                    if (task.isSuccessful()) {
+                                        FirebaseUser user = mAuth.getCurrentUser();
+                                        Toast.makeText(Registration.this, "User Added.",
+                                                Toast.LENGTH_SHORT).show();
+                                        br.setVisibility(View.GONE);
+                                        startActivity(new Intent(Registration.this, Login.class));
+                                        finish();
 
-                                } else {
-                                    Toast.makeText(Registration.this, "User Already Exist.",
-                                            Toast.LENGTH_SHORT).show();
-                                    br.setVisibility(View.GONE);
+                                    } else {
+                                        Toast.makeText(Registration.this, "User Already Exist.",
+                                                Toast.LENGTH_SHORT).show();
+                                        br.setVisibility(View.GONE);
 
+                                    }
                                 }
-                            }
-                        });
+                            });
+                }
+                else{
+                    Toast.makeText(Registration.this, "Please Provide Valid Input.",
+                            Toast.LENGTH_SHORT).show();
+            }
+
             }
         });
 

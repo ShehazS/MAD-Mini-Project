@@ -82,26 +82,32 @@ public class Login extends AppCompatActivity {
                 email = String.valueOf(un.getText());
                 password = String.valueOf(pwd.getText());
 
-                mAuth.signInWithEmailAndPassword(email, password)
-                        .addOnCompleteListener(new OnCompleteListener<AuthResult>() {
-                            @Override
-                            public void onComplete(@NonNull Task<AuthResult> task) {
-                                if (task.isSuccessful()) {
+                if (!email.isEmpty() || !password.isEmpty()) {
+                    mAuth.signInWithEmailAndPassword(email, password)
+                            .addOnCompleteListener(new OnCompleteListener<AuthResult>() {
+                                @Override
+                                public void onComplete(@NonNull Task<AuthResult> task) {
+                                    if (task.isSuccessful()) {
 
-                                    br.setVisibility(View.GONE);
-                                    FirebaseUser user = mAuth.getCurrentUser();
-                                    Toast.makeText(Login.this, "Welcome "+user,
-                                            Toast.LENGTH_SHORT).show();
-                                    startActivity(new Intent(Login.this,MainActivity.class));
-                                    finish();
-                                } else {
-                                    br.setVisibility(View.GONE);
-                                    Toast.makeText(Login.this, "Invalid Username Or Passwword.",
-                                            Toast.LENGTH_SHORT).show();
+                                        br.setVisibility(View.GONE);
+                                        FirebaseUser user = mAuth.getCurrentUser();
+                                        Toast.makeText(Login.this, "Welcome " + user,
+                                                Toast.LENGTH_SHORT).show();
+                                        startActivity(new Intent(Login.this, MainActivity.class));
+                                        finish();
+                                    } else {
+                                        br.setVisibility(View.GONE);
+                                        Toast.makeText(Login.this, "Invalid Username Or Passwword.",
+                                                Toast.LENGTH_SHORT).show();
 
+                                    }
                                 }
-                            }
-                        });
+                            });
+                }
+                else{
+                    Toast.makeText(Login.this, "Invalid Username Or Passwword.",
+                            Toast.LENGTH_SHORT).show();
+                }
             }
         });
     }
