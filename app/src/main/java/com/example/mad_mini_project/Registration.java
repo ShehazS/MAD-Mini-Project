@@ -21,6 +21,7 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 
 public class Registration extends AppCompatActivity {
+
     private FirebaseAuth mAuth;
     TextView gotologin;
     EditText em,psw;

@@ -25,6 +25,7 @@ import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
 
+
     Button btn,sale,manageproduct,viewsale;
     FirebaseDatabase data;
     DatabaseReference dataref;

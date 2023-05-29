@@ -29,6 +29,7 @@ import java.util.List;
 
 public class Sale extends AppCompatActivity {
 
+
     EditText Type,Price,Quantity,Total;
     String type,price,quantity,total;;
 

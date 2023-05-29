@@ -6,6 +6,7 @@
     android:layout_height="match_parent"
     tools:context=".SplashScreen">
 
+
     <com.airbnb.lottie.LottieAnimationView
         android:id="@+id/myani"
         android:layout_width="315dp"

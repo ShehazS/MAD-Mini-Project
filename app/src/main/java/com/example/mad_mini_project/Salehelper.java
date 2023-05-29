@@ -3,6 +3,7 @@ package com.example.mad_mini_project;
 public class Salehelper {
     String type,price,quantity,total;
 
+
     public Salehelper() {
     }
 

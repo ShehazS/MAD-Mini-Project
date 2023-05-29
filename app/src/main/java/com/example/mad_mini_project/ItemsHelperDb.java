@@ -2,6 +2,7 @@ package com.example.mad_mini_project;
 
 public class ItemsHelperDb {
 
+
     public String Quantity;
     public String RPrice;
 

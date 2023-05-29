@@ -2,6 +2,7 @@ package com.example.mad_mini_project;
 
 public class ProductHelperClass {
 
+
     String Type,WholesalePrice,RetainPrice,Quantity;
 
     public ProductHelperClass() {
